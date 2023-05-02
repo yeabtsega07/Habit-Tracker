@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import "package:flutter/material.dart";
-import './util/habit_bar.dart';
-import '../models/habit.dart';
-import '../widgets/new_habit.dart';
+import '../util/habit_bar.dart';
+import '../../models/habit.dart';
+import '../../widgets/new_habit.dart';
+import './profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -113,21 +114,22 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  void viewProfile() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ProfilePage(habitList)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromARGB(255, 210, 217, 221),
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 26, 32, 35),
-        title: Text("Consistency is key."),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () => startAddNewHabit(context),
-          ),
-        ],
-      ),
-      body: ListView.builder(
+    Widget body;
+    if (habitList.isEmpty) {
+      body = Center(
+        child: Text('No habits yet.'),
+      );
+    } else {
+      body = ListView.builder(
         itemCount: habitList.length,
         itemBuilder: (BuildContext context, int index) {
           return HabitBar(
@@ -143,7 +145,21 @@ class _HomePageState extends State<HomePage> {
             goalTime: habitList[index].goalTime,
           );
         },
+      );
+    }
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255, 210, 217, 221),
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 26, 32, 35),
+        title: Text("Consistency is key."),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.person),
+            onPressed: () => viewProfile(),
+          ),
+        ],
       ),
+      body: body,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color.fromARGB(255, 26, 32, 35),
