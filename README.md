@@ -1,16 +1,26 @@
-# habit_tracker
+# Habit Tracker - A Flutter App for Tracking Your Habits
 
-A new Flutter project.
+Habit Tracker is a Flutter mobile application that helps you build and track positive habits in your daily life. Whether it's exercising, reading, or meditating, this app allows you to add, delete, and set a time for each habit. The app visually represents your progress using circular progress bars to keep you motivated and accountable.
 
-## Getting Started
+# Features
+Add and Delete Habits: Users can easily add new habits to track and delete existing habits they no longer wish to monitor.
 
-This project is a starting point for a Flutter application.
+Set Time for Habits: Users can specify the desired time duration for each habit, helping them manage their schedule efficiently.
 
-A few resources to get you started if this is your first Flutter project:
+Circular Progress Bar: Habit Tracker employs circular progress bars to visually represent the completion status of each habit, making it easy to see your progress at a glance.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Installation
+Clone the repository to your local machine:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+git clone https://github.com/your-username/habit-tracker.git
+cd habit-tracker
+Install the necessary dependencies:
+
+
+flutter pub get
+Run the app:
+
+
+flutter run
+The application will run on your connected device or simulator/emulator.
